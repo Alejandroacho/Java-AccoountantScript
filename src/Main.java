@@ -48,20 +48,11 @@ public class Main {
             //Se pregunta la edad del usuario
             System.out.println("Introduzca la edad del usuario: ");
             //Se almacena la edad del usuario en la variable
-            posibleEdadUsuario = lectura.nextLine();
-            try{
-                //Intentamos convertirlo a numero. Hacemos esto para saber si el usuario introdujo un numero
-                edadUsuario = Integer.parseInt(posibleEdadUsuario);
+            posibleEdadUsuario = lectura.nextInt();
                 //Si el numero es menor o igual a 0 se muestra el mensaje
-                if (edadUsuario<=0){
-                    System.out.println("La edad debe ser mayor que cero: ");
-                }
+            if (edadUsuario<=0){
+                System.out.println("La edad debe ser mayor que cero: ");
             }
-            //Se muestra  la excepcion en donde se pide que se introduzca un numero mayor que 0
-            catch (Exception e){
-                System.out.println("Debes introducir un numero.");
-            }
-
         }while (posibleEdadUsuario.isEmpty() || edadUsuario<=0);
     }
 
