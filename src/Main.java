@@ -15,6 +15,16 @@ public class Main {
     private static int edadUsuario;
     //Se utiliza para almacenar una nueva cuenta
     private static Cuenta nuevaCuenta;
+    //Variable que almacenara lo que elija el usuario
+    private static int opcionSeleccionada;
+    //Variable para almacenar el importe de un gasto o oingreso
+    private static double importe;
+    //Variable para almacenar la descripcion de un movimiento
+    private static String descriptionMovimiento;
+    //Lista de ingresos
+    private static List <Ingreso> ingresos =  new ArrayList<Ingreso>();
+    //Lista de gastos
+    private static List <Gasto> gastos=  new ArrayList<Gasto>();
 
     private static boolean introducirUsuario() {
         //Se pide el nombre
@@ -75,8 +85,7 @@ public class Main {
         nuevoUsuario.setEdad(edadUsuario);
         nuevoUsuario.setDNI(DNIUsuario);
     }
-    //Se crea la variable que almacenara lo que elija el usuario
-    private static int opcionSeleccionada;
+
     private static void seleccionarOperacion(){
         //Se muestra el menu y se pregunta por una opción
         System.out.println("Realiza una nueva acción");
@@ -93,10 +102,6 @@ public class Main {
         //Se hace limpieza de buffer
         lectura.nextLine();
     }
-    //Variable para almacenar el importe
-    private static double importe;
-    //Variable para almacenar la descripcion del movimiento
-    private static String descriptionMovimiento;
 
     private static boolean insertarDatosGasto (){
         do{
@@ -115,8 +120,7 @@ public class Main {
         //Se retorna true
         return true;
     }
-    //Almacena la lista de gastos
-    private static List <Gasto> gastos=  new ArrayList<Gasto>();
+
     //El metodo crea un objeto de tipo gasto y agrega a la lista de gastos el nuevo gasto
     private static void agregarGasto(){
         //Se crea un nuevo gasto
@@ -127,6 +131,7 @@ public class Main {
         //se añade el nuevo gasto a la lista
         gastos.add(nuevoGasto);
     }
+
     private static boolean insertarDatosIngreso () {
         do {
             //Se pide el concepto del ingreso
@@ -144,8 +149,7 @@ public class Main {
         return true;
 
     }
-    //Se almacena la lista de ingresos
-    private static List <Ingreso> ingresos =  new ArrayList<Ingreso>();
+
     //Crea un objeto de tipo ingreso y agrega a la lista de ingresos el nuevo ingreso
     private static void agregarIngreso(){
         //Se crea un nuevo ingreso
@@ -156,6 +160,7 @@ public class Main {
         //Se agrega el ingreso a la lista
         ingresos.add(nuevoIngreso);
     }
+
     //Ejecución del programa
     public static void main (String[] args) throws GastoException {
         if (introducirUsuario()){
