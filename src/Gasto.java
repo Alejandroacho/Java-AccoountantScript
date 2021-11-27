@@ -5,7 +5,7 @@ public class Gasto extends Dinero {
         this.description = description;
     }
 
-    //Devuelve el concepto del gasto
+    //Devuelve el concepto del gasto com un string
     @Override
     public String toString() {
         return "Gasto de " + this.dinero + " en concepto de " + this.getDescription() ;

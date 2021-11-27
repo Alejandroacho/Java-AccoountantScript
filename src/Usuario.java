@@ -35,18 +35,13 @@ public class Usuario {
         }
         else {
             return false;
-
         }
-
     }
     //Devuelve los datos ingresados
     @Override
     public String toString () {
         return "Nombre: " + nombre + "/n"
-                + "Edad: " + edad + "/n"
-                + "DNI: " + DNI ;
-
+             + "Edad: " + edad + "/n"
+             + "DNI: " + DNI ;
     }
-
-
 }

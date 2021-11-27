@@ -55,7 +55,7 @@ public class Cuenta {
         return saldo;
     }
 
-    //Devuelve el saldo de la cuenta
+    //Devuelve el saldo de la cuenta como un string
     @Override
     public String toString(){
         return "El saldo de tu cuenta es " + this.saldo + " euros.";

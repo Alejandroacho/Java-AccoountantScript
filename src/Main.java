@@ -8,7 +8,7 @@ public class Main {
     //Almacena el nombre de usuario
     private static String nombreUsuario;
     //Almacena la edad en formato texto
-    private static String edadUsuario1;
+    private static String posibleEdadUsuario;
     //Almacena el DNI en formato texto
     private static String DNIUsuario;
     //Almacena un nuevo usuario
@@ -19,6 +19,7 @@ public class Main {
     private static Cuenta nuevaCuenta;
 
     private static boolean introducirUsuario() {
+        // Bucle para la asignacion del nombre de usuario
         do{
             //Se pregunta el nombre de usuario
             System.out.println("Introduzca el nombre de usuario: ");
@@ -27,14 +28,16 @@ public class Main {
             //Se pasa a mayusculas
             nombreUsuario = nombreUsuario.toUpperCase();
         }while (nombreUsuario.isEmpty());
+
+        // Bucle para la asignacion de la edad
         do{
             //Se pregunta la edad del usuario
             System.out.println("Introduzca la edad del usuario: ");
             //Se almacena la edad del usuario en la variable
-            edadUsuario1 = lectura.nextLine();
+            posibleEdadUsuario = lectura.nextLine();
             try{
                 //Intentamos convertirlo a numero. Hacemos esto para saber si el usuario introdujo un numero
-                edadUsuario = Integer.parseInt(edadUsuario1);
+                edadUsuario = Integer.parseInt(posibleEdadUsuario);
                 //Si el numero es menor o igual a 0 se muestra el mensaje
                 if (edadUsuario<=0){
                     System.out.println("La edad debe ser mayor que cero: ");
@@ -42,10 +45,12 @@ public class Main {
             }
             //Se muestra  la excepcion en donde se pide que se introduzca un numero mayor que 0
             catch (Exception e){
-                System.out.println("Debes introducir un numero mayor que cero: ");
+                System.out.println("Debes introducir un numero.");
             }
 
-        }while (edadUsuario1.isEmpty() || edadUsuario<=0);
+        }while (posibleEdadUsuario.isEmpty() || edadUsuario<=0);
+
+        // Bucle para la asignacion del DNI
         do {
             //Se pregunta el DNI al usuario
             System.out.println("Introduzca el DNI del usuario: ");
@@ -53,8 +58,7 @@ public class Main {
             DNIUsuario = lectura.nextLine();
             //Lo pasamos a mayusuculas
             DNIUsuario = DNIUsuario.toUpperCase();
-        }while(DNIUsuario.isEmpty()
-                || DNIUsuario.length()<9 || DNIUsuario.length()>10);
+        }while(DNIUsuario.isEmpty() || DNIUsuario.length()<9 || DNIUsuario.length()>10);
         System.out.println("*******************************");
         //Se devuelve true
         return true;
@@ -72,13 +76,13 @@ public class Main {
     private static int opcionSeleccionada;
     private static void seleccionarOperacion(){
         //Se muestra el menu y se pregunta por una opción
-        System.out.println("Realiza una nueva acción: ");
-        System.out.println("1. Introduce un nuevo gasto: ");
-        System.out.println("2. Introduce un nuevo ingreso: ");
-        System.out.println("3. Mostrar gastos: ");
-        System.out.println("4. Mostrar ingresos: ");
-        System.out.println("5. Mostrar saldo: ");
-        System.out.println("0. Salir ");
+        System.out.println("Realiza una nueva acción");
+        System.out.println("1. Introduce un nuevo gasto");
+        System.out.println("2. Introduce un nuevo ingreso");
+        System.out.println("3. Mostrar gastos");
+        System.out.println("4. Mostrar ingresos");
+        System.out.println("5. Mostrar saldo");
+        System.out.println("0. Salir");
         do{
             System.out.println("Selecciona una opcion: ");
             opcionSeleccionada = lectura.nextInt();
@@ -211,5 +215,4 @@ public class Main {
 
         }lectura.close();
     }
-
 }
