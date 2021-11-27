@@ -88,13 +88,13 @@ public class Main {
 
     private static void seleccionarOperacion(){
         //Se muestra el menu y se pregunta por una opción
-        System.out.println("Realiza una nueva acción");
-        System.out.println("1. Introduce un nuevo gasto");
-        System.out.println("2. Introduce un nuevo ingreso");
-        System.out.println("3. Mostrar gastos");
-        System.out.println("4. Mostrar ingresos");
-        System.out.println("5. Mostrar saldo");
-        System.out.println("0. Salir");
+        System.out.println("Realiza una nueva acción \n
+                            1. Introduce un nuevo gasto\n
+                            2. Introduce un nuevo ingreso\n
+                            3. Mostrar gastos\n
+                            4. Mostrar ingresos\n
+                            5. Mostrar saldo\n
+                            0. Salir");
         do{
             System.out.println("Selecciona una opcion: ");
             opcionSeleccionada = lectura.nextInt();
@@ -147,7 +147,6 @@ public class Main {
         } while (importe < 0);
         //Se retorna true
         return true;
-
     }
 
     //Crea un objeto de tipo ingreso y agrega a la lista de ingresos el nuevo ingreso
