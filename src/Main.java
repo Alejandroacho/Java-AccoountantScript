@@ -7,8 +7,6 @@ public class Main {
     private static Scanner lectura = new Scanner (System.in);
     //Almacena el nombre de usuario
     private static String nombreUsuario;
-    //Almacena la edad en formato texto
-    private static String posibleEdadUsuario;
     //Almacena el DNI en formato texto
     private static String DNIUsuario;
     //Almacena un nuevo usuario
@@ -48,12 +46,12 @@ public class Main {
             //Se pregunta la edad del usuario
             System.out.println("Introduzca la edad del usuario: ");
             //Se almacena la edad del usuario en la variable
-            posibleEdadUsuario = lectura.nextInt();
+            edadUsuario = lectura.nextInt();
                 //Si el numero es menor o igual a 0 se muestra el mensaje
             if (edadUsuario<=0){
                 System.out.println("La edad debe ser mayor que cero: ");
             }
-        }while (posibleEdadUsuario.isEmpty() || edadUsuario<=0);
+        }while (edadUsuario<=0);
     }
 
     private static void asignarDNI(){
@@ -62,7 +60,7 @@ public class Main {
             //Se pregunta el DNI al usuario
             System.out.println("Introduzca el DNI del usuario: ");
             //Se almacena el DNI del usuario en la variable
-            DNIUsuario = lectura.nextLine();
+            DNIUsuario = lectura.next();
             //Lo pasamos a mayusuculas
             DNIUsuario = DNIUsuario.toUpperCase();
         }while(DNIUsuario.isEmpty() || DNIUsuario.length()<9 || DNIUsuario.length()>10);
@@ -76,9 +74,6 @@ public class Main {
         nuevoUsuario.setNombre(nombreUsuario);
         nuevoUsuario.setEdad(edadUsuario);
         nuevoUsuario.setDNI(DNIUsuario);
-        System.out.println(nuevoUsuario.getNombre());
-        System.out.println(nuevoUsuario.getEdad());
-        System.out.println(nuevoUsuario.getDNI());
     }
     //Se crea la variable que almacenara lo que elija el usuario
     private static int opcionSeleccionada;
