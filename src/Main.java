@@ -104,19 +104,8 @@ public class Main {
     }
 
     private static boolean insertarDatosGasto (){
-        do{
-            //Se pide el concepto del gasto
-            System.out.println("Introduzca el concepto del nuevo gasto: ");
-            //Se almacena en la variable
-            descriptionMovimiento = lectura.nextLine();
-        }while (descriptionMovimiento.isEmpty());
-
-        do {
-            //Se pide el importe del gasto
-            System.out.println("Introduzca el importe del gasto: ");
-            //Se almacena el importe en la variable
-            importe = lectura.nextDouble();
-        }while (importe < 0);
+        agregarConcepto("gasto");
+        agregarImporte("gasto");
         //Se retorna true
         return true;
     }
@@ -133,20 +122,29 @@ public class Main {
     }
 
     private static boolean insertarDatosIngreso () {
+        agregarConcepto("ingreso");
+        agregarImporte("ingreso");
+        //Se retorna true
+        return true;
+    }
+
+    private static void agregarConcepto(tipo){
+        descriptionMovimiento = "";
         do {
             //Se pide el concepto del ingreso
-            System.out.println("Introduzca el concepto del nuevo ingreso: ");
+            System.out.println("Introduzca el" + tipo + " del nuevo ingreso: ");
             //Se guarda la descripcion del ingreso
             descriptionMovimiento = lectura.nextLine();
         } while (descriptionMovimiento.isEmpty());
+    }
 
+    private static vooid agregarImporte(tipo){
+        importe = 0;
         do {
             //Se pide el importe
-            System.out.println("Introduzca el importe del ingreso: ");
+            System.out.println("Introduzca el importe del " + tipo + ": ");
             importe = lectura.nextDouble();
         } while (importe < 0);
-        //Se retorna true
-        return true;
     }
 
     //Crea un objeto de tipo ingreso y agrega a la lista de ingresos el nuevo ingreso
