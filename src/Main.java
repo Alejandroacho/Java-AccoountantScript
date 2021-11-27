@@ -19,15 +19,8 @@ public class Main {
     private static Cuenta nuevaCuenta;
 
     private static boolean introducirUsuario() {
-        // Bucle para la asignacion del nombre de usuario
-        do{
-            //Se pregunta el nombre de usuario
-            System.out.println("Introduzca el nombre de usuario: ");
-            //Se guarda en la variable nombre
-            nombreUsuario = lectura.nextLine();
-            //Se pasa a mayusculas
-            nombreUsuario = nombreUsuario.toUpperCase();
-        }while (nombreUsuario.isEmpty());
+        //Se pide el nombre
+        nombreUsuario = asignarNombre();
 
         // Bucle para la asignacion de la edad
         do{
@@ -63,6 +56,21 @@ public class Main {
         //Se devuelve true
         return true;
     }
+
+    // Metodo para la asignacion del nombre de usuario
+    private static String asignarNombre(){
+        // Bucle para la asignacion del nombre de usuario
+        do{
+            //Se pregunta el nombre de usuario
+            System.out.println("Introduzca el nombre de usuario: ");
+            //Se guarda en la variable nombre
+            nombreUsuario = lectura.nextLine();
+            //Se pasa a mayusculas
+            nombreUsuario = nombreUsuario.toUpperCase();
+        }while (nombreUsuario.isEmpty());
+        return nombreUsuario;
+    }
+
     //Metodo que crea el usuario
     private static void crearUsuario(){
         //Se agregan los datos que se pidieron por teclado
