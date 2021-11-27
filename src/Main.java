@@ -20,8 +20,38 @@ public class Main {
 
     private static boolean introducirUsuario() {
         //Se pide el nombre
-        nombreUsuario = asignarNombre();
+        asignarNombre();
+        //Se pide la edad
+        asignarEdad();
 
+        // Bucle para la asignacion del DNI
+        do {
+            //Se pregunta el DNI al usuario
+            System.out.println("Introduzca el DNI del usuario: ");
+            //Se almacena el DNI del usuario en la variable
+            DNIUsuario = lectura.nextLine();
+            //Lo pasamos a mayusuculas
+            DNIUsuario = DNIUsuario.toUpperCase();
+        }while(DNIUsuario.isEmpty() || DNIUsuario.length()<9 || DNIUsuario.length()>10);
+        System.out.println("*******************************");
+        //Se devuelve true
+        return true;
+    }
+
+    // Metodo para la asignacion del nombre de usuario
+    private static void asignarNombre(){
+        // Bucle para la asignacion del nombre de usuario
+        do{
+            //Se pregunta el nombre de usuario
+            System.out.println("Introduzca el nombre de usuario: ");
+            //Se guarda en la variable nombre
+            nombreUsuario = lectura.nextLine();
+            //Se pasa a mayusculas
+            nombreUsuario = nombreUsuario.toUpperCase();
+        }while (nombreUsuario.isEmpty());
+    }
+
+    private static void asignarEdad(){
         // Bucle para la asignacion de la edad
         do{
             //Se pregunta la edad del usuario
@@ -43,32 +73,6 @@ public class Main {
 
         }while (posibleEdadUsuario.isEmpty() || edadUsuario<=0);
 
-        // Bucle para la asignacion del DNI
-        do {
-            //Se pregunta el DNI al usuario
-            System.out.println("Introduzca el DNI del usuario: ");
-            //Se almacena el DNI del usuario en la variable
-            DNIUsuario = lectura.nextLine();
-            //Lo pasamos a mayusuculas
-            DNIUsuario = DNIUsuario.toUpperCase();
-        }while(DNIUsuario.isEmpty() || DNIUsuario.length()<9 || DNIUsuario.length()>10);
-        System.out.println("*******************************");
-        //Se devuelve true
-        return true;
-    }
-
-    // Metodo para la asignacion del nombre de usuario
-    private static String asignarNombre(){
-        // Bucle para la asignacion del nombre de usuario
-        do{
-            //Se pregunta el nombre de usuario
-            System.out.println("Introduzca el nombre de usuario: ");
-            //Se guarda en la variable nombre
-            nombreUsuario = lectura.nextLine();
-            //Se pasa a mayusculas
-            nombreUsuario = nombreUsuario.toUpperCase();
-        }while (nombreUsuario.isEmpty());
-        return nombreUsuario;
     }
 
     //Metodo que crea el usuario
@@ -78,6 +82,7 @@ public class Main {
         nuevoUsuario.setNombre(nombreUsuario);
         nuevoUsuario.setEdad(edadUsuario);
         nuevoUsuario.setDNI(DNIUsuario);
+        System.out.println(nuevoUsuario.getNombre());
 
     }
     //Se crea la variable que almacenara lo que elija el usuario

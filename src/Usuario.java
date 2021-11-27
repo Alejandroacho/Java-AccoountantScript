@@ -29,7 +29,7 @@ public class Usuario {
     }
     //Establece el DNI con sus parametros
     public boolean setDNI(String DNI) {
-        if (DNI.matches("^[0-9]{8}[a-zA-Z]$")){
+        if (DNI.matches("^[0-9]{8}[a-zA-Z]$") || DNI.matches("^[0-9]{8}-[a-zA-Z]$")){
             this.DNI = DNI;
             return true;
         }
