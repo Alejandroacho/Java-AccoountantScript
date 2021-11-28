@@ -128,7 +128,7 @@ public class Main {
         return true;
     }
 
-    private static void agregarConcepto(tipo){
+    private static void agregarConcepto(String tipo){
         descriptionMovimiento = "";
         do {
             //Se pide el concepto del ingreso
@@ -138,7 +138,7 @@ public class Main {
         } while (descriptionMovimiento.isEmpty());
     }
 
-    private static vooid agregarImporte(tipo){
+    private static void agregarImporte(String tipo){
         importe = 0;
         do {
             //Se pide el importe
