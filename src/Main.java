@@ -132,7 +132,7 @@ public class Main {
         descriptionMovimiento = "";
         do {
             //Se pide el concepto del ingreso
-            System.out.println("Introduzca el" + tipo + " del nuevo ingreso: ");
+            System.out.println("Introduzca el concepto del nuevo " + tipo + ": ");
             //Se guarda la descripcion del ingreso
             descriptionMovimiento = lectura.nextLine();
         } while (descriptionMovimiento.isEmpty());
@@ -165,14 +165,14 @@ public class Main {
             nuevaCuenta = new Cuenta(nuevoUsuario); //Se crea la cuenta para almacenar los ingresos
             seleccionarOperacion();
             do { //Se muestran las opciones
-                gestionarOperacion();
+                gestionarOpcionSeleccionada();
             }while (opcionSeleccionada !=0 || opcionSeleccionada>5);
             System.out.println("El programa ha finalizado. "
                     + "Gracias por utilizar la aplicacion.");
         }lectura.close();
     }
 
-    private void gestionarOpcionSeleccionada(){
+    private static void gestionarOpcionSeleccionada(){
         switch (opcionSeleccionada){ // se hace como minimo una vez
             case 1:
                 opcionUno();
@@ -209,15 +209,11 @@ public class Main {
 
     private static void opcionDos(){
     //Si el metodo devuelve true es que los datos son correctos
-        if(insertarDatosGasto()) {
-            if (importe > nuevaCuenta.getSaldo()) {
-                // Si el importe es mayor que el saldo se lanza la excepción
-                System.out.println(new GastoException());
-
-            } else
-                agregarGasto(); //Se agrega un nuevo gasto
-            nuevaCuenta.addGastos(descriptionMovimiento, importe); //Se actualiza el estado de cuenta
-        }   nuevaCuenta.setGastos(gastos);// Se agrega a la lista de gastos
+        if (insertarDatosIngreso()){
+            agregarIngreso();// Se agrega el ingreso
+            nuevaCuenta.addIngresos(descriptionMovimiento,importe); //Se agrega ek ingreso a la cuenta
+            nuevaCuenta.setIngresos(ingresos);
+        }
         seleccionarOperacion();
     }
 
