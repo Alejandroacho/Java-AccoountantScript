@@ -165,59 +165,85 @@ public class Main {
             nuevaCuenta = new Cuenta(nuevoUsuario); //Se crea la cuenta para almacenar los ingresos
             seleccionarOperacion();
             do { //Se muestran las opciones
-                switch (opcionSeleccionada){ // se hace como minimo una vez
-                    case 1:
-                        //Si el metodo devuelve true es que los datos son correctos
-                        if(insertarDatosGasto()) {
-                            if (importe > nuevaCuenta.getSaldo()) {
-                                // Si el importe es mayor que el saldo se lanza la excepción
-                                System.out.println(new GastoException());
-
-                            } else
-                                agregarGasto(); //Se agrega un nuevo gasto
-                            nuevaCuenta.addGastos(descriptionMovimiento, importe); //Se actualiza el estado de cuenta
-                        }   nuevaCuenta.setGastos(gastos);// Se agrega a la lista de gastos
-                        seleccionarOperacion();
-                        break;
-                    case 2:
-                        if (insertarDatosIngreso()){
-                            agregarIngreso();// Se agrega el ingreso
-                            nuevaCuenta.addIngresos(descriptionMovimiento,importe); //Se agrega ek ingreso a la cuenta
-                            nuevaCuenta.setIngresos(ingresos);
-
-                        }
-                        seleccionarOperacion();
-                        break;
-                    case 3:
-                        if (nuevaCuenta.getGastos() == null){ //Se muestra un mensaje de informacion
-                            System.out.println("No existen movimientos de gastos");
-                        }
-                        else {
-                            System.out.println(nuevaCuenta.getGastos());
-
-                        }seleccionarOperacion();
-                        break;
-                    case 4:
-                        if (nuevaCuenta.getIngresos() == null){ //Se muestra un mensaje de informacion
-                            System.out.println("No existen movimientos de ingresos");
-                        }
-                        else {
-                            System.out.println(nuevaCuenta.getIngresos());
-
-                        }seleccionarOperacion();
-                        break;
-                    case 5:
-                        System.out.println(nuevaCuenta.toString());
-                        seleccionarOperacion();
-                        break;
-                    case 0:
-                }
-
+                gestionarOperacion();
             }while (opcionSeleccionada !=0 || opcionSeleccionada>5);
-
             System.out.println("El programa ha finalizado. "
                     + "Gracias por utilizar la aplicacion.");
-
         }lectura.close();
+    }
+
+    private void gestionarOpcionSeleccionada(){
+        switch (opcionSeleccionada){ // se hace como minimo una vez
+            case 1:
+                optionOne();
+                break;
+            case 2:
+                optionTwo();
+                break;
+            case 3:
+                optionThree();
+                break;
+            case 4:
+                optionFour();
+                break;
+            case 5:
+                optionFive();
+                break;
+            case 0:
+        }
+    }
+
+    private static void optionOne(){
+        //Si el metodo devuelve true es que los datos son correctos
+        if(insertarDatosGasto()) {
+            if (importe > nuevaCuenta.getSaldo()) {
+                // Si el importe es mayor que el saldo se lanza la excepción
+                System.out.println(new GastoException());
+
+            } else
+                agregarGasto(); //Se agrega un nuevo gasto
+            nuevaCuenta.addGastos(descriptionMovimiento, importe); //Se actualiza el estado de cuenta
+        }   nuevaCuenta.setGastos(gastos);// Se agrega a la lista de gastos
+        seleccionarOperacion();
+    }
+
+    private static void optionOne(){
+    //Si el metodo devuelve true es que los datos son correctos
+        if(insertarDatosGasto()) {
+            if (importe > nuevaCuenta.getSaldo()) {
+                // Si el importe es mayor que el saldo se lanza la excepción
+                System.out.println(new GastoException());
+
+            } else
+                agregarGasto(); //Se agrega un nuevo gasto
+            nuevaCuenta.addGastos(descriptionMovimiento, importe); //Se actualiza el estado de cuenta
+        }   nuevaCuenta.setGastos(gastos);// Se agrega a la lista de gastos
+        seleccionarOperacion();
+    }
+
+    private static void optionThree(){
+        if (nuevaCuenta.getGastos() == null){ //Se muestra un mensaje de informacion
+            System.out.println("No existen movimientos de gastos");
+        }
+        else {
+            System.out.println(nuevaCuenta.getGastos());
+
+        }seleccionarOperacion();
+    }
+
+
+    private static void optionFour(){
+        if (nuevaCuenta.getIngresos() == null){ //Se muestra un mensaje de informacion
+            System.out.println("No existen movimientos de ingresos");
+        }
+        else {
+            System.out.println(nuevaCuenta.getIngresos());
+
+        }seleccionarOperacion();
+    }
+
+    private static void optionFive(){
+        System.out.println(nuevaCuenta.toString());
+        seleccionarOperacion();
     }
 }
