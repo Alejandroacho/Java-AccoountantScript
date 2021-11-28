@@ -175,25 +175,25 @@ public class Main {
     private void gestionarOpcionSeleccionada(){
         switch (opcionSeleccionada){ // se hace como minimo una vez
             case 1:
-                optionOne();
+                opcionUno();
                 break;
             case 2:
-                optionTwo();
+                opcionDos();
                 break;
             case 3:
-                optionThree();
+                opcionTres();
                 break;
             case 4:
-                optionFour();
+                opcionCuatro();
                 break;
             case 5:
-                optionFive();
+                opcionCinco();
                 break;
             case 0:
         }
     }
 
-    private static void optionOne(){
+    private static void opcionUno(){
         //Si el metodo devuelve true es que los datos son correctos
         if(insertarDatosGasto()) {
             if (importe > nuevaCuenta.getSaldo()) {
@@ -207,7 +207,7 @@ public class Main {
         seleccionarOperacion();
     }
 
-    private static void optionOne(){
+    private static void opcionDos(){
     //Si el metodo devuelve true es que los datos son correctos
         if(insertarDatosGasto()) {
             if (importe > nuevaCuenta.getSaldo()) {
@@ -221,7 +221,7 @@ public class Main {
         seleccionarOperacion();
     }
 
-    private static void optionThree(){
+    private static void opcionTres(){
         if (nuevaCuenta.getGastos() == null){ //Se muestra un mensaje de informacion
             System.out.println("No existen movimientos de gastos");
         }
@@ -232,7 +232,7 @@ public class Main {
     }
 
 
-    private static void optionFour(){
+    private static void opcionCuatro(){
         if (nuevaCuenta.getIngresos() == null){ //Se muestra un mensaje de informacion
             System.out.println("No existen movimientos de ingresos");
         }
@@ -242,7 +242,7 @@ public class Main {
         }seleccionarOperacion();
     }
 
-    private static void optionFive(){
+    private static void opcionCinco(){
         System.out.println(nuevaCuenta.toString());
         seleccionarOperacion();
     }
